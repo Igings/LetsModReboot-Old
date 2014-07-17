@@ -1,6 +1,8 @@
 package com.igings.letsmodreboot;
 
+import com.igings.letsmodreboot.proxy.IProxy;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -10,6 +12,9 @@ public class LetsModReboot
 {
     @Mod.Instance("LetsModReboot")
     public static LetsModReboot instance;
+
+    @SidedProxy(clientSide="com.igings.letsmodreboot.proxy.ClientProxy",serverSide = "com.igings.letsmodreboot.proxy.ServerProxy")
+    public static IProxy proxy;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
