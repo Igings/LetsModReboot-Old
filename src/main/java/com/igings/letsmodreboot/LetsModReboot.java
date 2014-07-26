@@ -1,5 +1,6 @@
 package com.igings.letsmodreboot;
 
+import com.igings.letsmodreboot.configuration.ConfigurationHandler;
 import com.igings.letsmodreboot.proxy.IProxy;
 import com.igings.letsmodreboot.reference.Reference;
 import cpw.mods.fml.common.Mod;
@@ -7,6 +8,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+
+import java.io.File;
 
 @Mod(modid= Reference.MOD_ID,name=Reference.MOD_NAME, version=Reference.VERSION)
 public class LetsModReboot
@@ -20,7 +23,7 @@ public class LetsModReboot
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {//Initialisation for items, blocks, key-binds, network, etc
-
+        ConfigurationHandler.init(event.getSuggestedConfigurationFile());
     }
 
     @Mod.EventHandler
