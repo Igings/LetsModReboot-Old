@@ -29,7 +29,10 @@ public class ConfigurationHandler
         finally
         {
             //Save the config file
-            configuration.save();
+            if (configuration.hasChanged())
+            {
+                configuration.save();
+            }//test
         }
         System.out.println("Config Value = " + configValue);
         System.out.println("String Value = " + stringValue);
