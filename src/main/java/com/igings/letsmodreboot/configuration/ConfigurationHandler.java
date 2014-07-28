@@ -6,9 +6,11 @@ import java.io.File;
 
 public class ConfigurationHandler
 {
+    public static Configuration configuration;
+
     public static void init(File configFile) {
         //Create the config object from the given config file
-        Configuration configuration = new Configuration(configFile);
+        configuration = new Configuration(configFile);
         boolean configValue=false;
         String stringValue="Koagu";
         try
