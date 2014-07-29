@@ -4,6 +4,7 @@ import com.igings.letsmodreboot.handler.ConfigurationHandler;
 import com.igings.letsmodreboot.proxy.IProxy;
 import com.igings.letsmodreboot.reference.Reference;
 import com.igings.letsmodreboot.utility.LogHelper;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -23,7 +24,9 @@ public class LetsModReboot
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {//Initialisation for items, blocks, key-binds, network, etc
+
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+        FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
         LogHelper.info ("Pre-Initialisation complete");
     }
 
